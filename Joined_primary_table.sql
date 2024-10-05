@@ -57,6 +57,7 @@ JOIN average_wages taw
      ON tap.`year` = taw.payroll_year
 ORDER BY taw.payroll_year, taw.industry_branch;
 
+--  Finální tabulky pro účely splnění zadaných úkolů
 
 SELECT *
 FROM t_martin_buchal_project_sql_primary_final
