@@ -46,11 +46,11 @@ SELECT
     pi.Comparison_Year,
     ROUND(pi.pct_increase_price, 2) AS Price_increase_percentage,
     ROUND(wi.pct_increase_wage, 2) AS Wage_increase_percentage,
-    ROUND(ABS(pi.pct_increase_price - wi.pct_increase_wage), 2) AS Absolute_Difference,
-    CONCAT(ROUND(ABS(pi.pct_increase_price - wi.pct_increase_wage), 2), '%') AS Absolute_Difference_with_percent,
-    -- Podmínka pro možné zvýraznění, pokud je absolutní rozdíl větší než 10 %, např. při přidání dalších dat.
+    ROUND((pi.pct_increase_price - wi.pct_increase_wage), 2) AS Difference,
+    CONCAT(ROUND((pi.pct_increase_price - wi.pct_increase_wage), 2), '%') AS Difference_with_percent,
+    -- Podmínka pro možné zvýraznění, pokud je rozdíl větší než 10 %, např. při přidání dalších dat.
     CASE 
-        WHEN ABS(pi.pct_increase_price - wi.pct_increase_wage) > 10 THEN 'YES'
+        WHEN (pi.pct_increase_price - wi.pct_increase_wage) > 10 THEN 'YES'
         ELSE 'NO'
     END AS '10%_Threshold'
 FROM price_increase AS pi
