@@ -8,7 +8,7 @@ SELECT
     food_category AS Food_category,
     payroll_year AS Period,
     round(avg(average_price), 2) AS Average_price_per_unit,
-    round(avg(average_wages), 2) AS Average_wage,
+    round(avg(average_wages), 0) AS Average_wage,
     CONCAT(round(avg(average_wages) / avg(average_price)), ' ',
         CASE 
             WHEN food_category = 'Mléko polotučné pasterované' THEN 'l'

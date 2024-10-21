@@ -35,15 +35,10 @@ SELECT
 	Branch,
 	Period,
 	Trend,
-	SUM(YoY_diff) AS YoY_decrease
+	SUM(YoY_diff) AS YoY_decrease,
+	SUM(`YoY_%_diff`) AS YoY_perc_decrease
 FROM Trend_table
 WHERE Trend = 'Decrease'
 GROUP BY Branch, Period
 ORDER BY YoY_decrease;
-
-
-
-
-
-
 
